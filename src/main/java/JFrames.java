@@ -860,7 +860,6 @@ public class JFrames extends javax.swing.JFrame {
 //                enter_locations_fieldActionPerformed(evt);
             }
         });
-
         jLabel5.setText("How many locations do you whant to pass?");
 
         StartGameButton.setText("FIGHT!");
