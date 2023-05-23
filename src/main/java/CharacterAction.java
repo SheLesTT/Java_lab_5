@@ -40,6 +40,7 @@ public class CharacterAction {
     public Player ChooseEnemy(JLabel label, JLabel label2, JLabel text, JLabel label3) {
         int i = (int) (Math.random() * 4);
         ImageIcon icon1 = null;
+        System.out.println(i);
         switch (i) {
             case 0:
                 enemyy = enemyes[0];
@@ -72,14 +73,14 @@ public class CharacterAction {
         ImageIcon icon1 = null;
         icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Shao Kahn.png");
         label2.setText("Shao Kahn (босс)");
-        switch (i) {
-            case 2:
-                enemyy = enemyes[4];
-                break;
-            case 4:
-                enemyy = enemyes[5];
-                break;
-        }
+//        switch (i) {
+//            case 2:
+//        enemyy = enemyes[4];
+//                break;
+//            case 4:
+        enemyy = enemyes[5];
+//                break;
+//        }
         label.setIcon(icon1);
         text.setText(Integer.toString(enemyy.getDamage()));
         label3.setText(Integer.toString(enemyy.getHealth()) + "/" + Integer.toString(enemyy.getMaxHealth()));
@@ -133,7 +134,7 @@ public class CharacterAction {
         }
     }
 
-    public void AddPoints(Human human, Player[] enemyes) {
+    public void AddPoints(Human human, Player[] enemyes, JDialog lvl_up_dialog) {
         switch (human.getLevel()) {
             case 0:
                 human.setExperience(20);
@@ -158,6 +159,9 @@ public class CharacterAction {
         }
         for (int i = 0; i < 5; i++) {
             if (experience_for_next_level[i] == human.getExperience()) {
+                lvl_up_dialog.setVisible(true);
+                lvl_up_dialog.setSize(300,400);
+
                 human.setLevel();
                 human.setNextExperience(experience_for_next_level[i + 1]);
                 NewHealthHuman(human);

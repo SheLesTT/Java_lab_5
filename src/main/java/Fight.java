@@ -75,7 +75,8 @@ public class Fight {
             JProgressBar pr1, JProgressBar pr2, JDialog dialog1,
             JDialog dialog2, JFrame frame, ArrayList<Result> results,
             JLabel label4, JLabel label5, JLabel label6, JLabel label7,
-            JLabel label8, Items[] items, JRadioButton rb) {
+            JLabel label8, Items[] items, JRadioButton rb,Location location, JLabel location_num,
+                    JDialog lvl_up_dialog) {
         label7.setText("");
         human.setAttack(a);
 
@@ -103,18 +104,35 @@ public class Fight {
             rb.setText(items[2].getName() + ", " + items[2].getCount() + " шт");
             label7.setText("Вы воскресли");
         }
-        if (human.getHealth() <= 0 | enemy.getHealth() <= 0) {
-            if (((Human) human).getWin() == 11) {
-                EndFinalRound(((Human) human), action, results, dialog1, dialog2,
-                        frame, label4, label5);
-            } else {
-                EndRound(human, enemy, dialog, label3, action, items);
+
+        if (human.getHealth() <= 0){
+            EndFinalRound(((Human) human), action, results, dialog1, dialog2,
+                    frame, label4, label5, lvl_up_dialog);
+        }
+        if ( enemy.getHealth() <= 0) {
+            System.out.println("SOmeone is dead");
+            if(enemy instanceof ShaoKahn) {
+                location.Complete_location();
+                location_num.setText("Location " + location.locations_counter);
+                System.out.println(location.total_locations + "this is a locations left");
+                if(location.total_locations + 1 == location.locations_counter){
+                    EndFinalRound(((Human) human), action, results, dialog1, dialog2,
+                            frame, label4, label5, lvl_up_dialog);
+
+                }
+
+            }
+
+//                System.out.println("this is an end");
+//                System.out.println(enemy.getClass() + " in Hit ");
+                EndRound(human, enemy, dialog, label3, action, items, location,lvl_up_dialog);
             }
         }
-    }
+
+
 
     public void EndRound(Player human, Player enemy, JDialog dialog, JLabel label,
-            CharacterAction action, Items[] items) {
+            CharacterAction action, Items[] items,Location location, JDialog lvl_up_dialog) {
 
         dialog.setVisible(true);
         dialog.setBounds(300, 150, 700, 600);
@@ -123,11 +141,21 @@ public class Fight {
             ((Human) human).setWin();
 
             if (enemy instanceof ShaoKahn) {
+
+
+                ((Human) human).resetWin();
+
+                if(location.total_locations == 0){
+
+                }
+//                location.New_Location();
+
+
                 action.AddItems(38, 23, 8, items);
                 action.AddPointsBoss(((Human) human), action.getEnemyes());
             } else {
                 action.AddItems(25, 15, 5, items);
-                action.AddPoints(((Human) human), action.getEnemyes());
+                action.AddPoints(((Human) human), action.getEnemyes(), lvl_up_dialog);
             }
         } else {
             label.setText(enemy.getName() + " win");
@@ -141,11 +169,11 @@ public class Fight {
 
     public void EndFinalRound(Human human, CharacterAction action,
             ArrayList<Result> results, JDialog dialog1, JDialog dialog2, JFrame frame,
-            JLabel label1, JLabel label2) {
+            JLabel label1, JLabel label2, JDialog lvl_up_dialog) {
         String text = "Победа не на вашей стороне";
         if (human.getHealth() > 0) {
             human.setWin();
-            action.AddPoints(human, action.getEnemyes());
+            action.AddPoints(human, action.getEnemyes(), lvl_up_dialog);
             text = "Победа на вашей стороне";
         }
         boolean top = false;
@@ -180,10 +208,11 @@ public class Fight {
     }
 
     public Player NewRound(Player human, JLabel label, JProgressBar pr1,
-            JProgressBar pr2, JLabel label2, JLabel text, JLabel label3, CharacterAction action) {
+            JProgressBar pr2, JLabel label2, JLabel text, JLabel label3, CharacterAction action, boolean is_boss) {
 
         Player enemy1 = null;
-        if (((Human) human).getWin() == 6 | ((Human) human).getWin() == 11) {
+        if (is_boss) {
+            System.out.println("Shoosing BOss");
             enemy1 = action.ChooseBoss(label, label2, text, label3, human.getLevel());
         } else {
             enemy1 = action.ChooseEnemy(label, label2, text, label3);
@@ -194,6 +223,7 @@ public class Fight {
         enemy1.setNewHealth(enemy1.getMaxHealth());
         action.HP(human, pr1);
         action.HP(enemy1, pr2);
+
         return enemy1;
     }
 

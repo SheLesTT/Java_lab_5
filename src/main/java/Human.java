@@ -53,6 +53,7 @@ public class Human extends Player{
     public void setWin(){
         this.win++;
     }
+    public void resetWin() {this.win =0; }
     
     @Override
     public String getName(){

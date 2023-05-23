@@ -26,7 +26,7 @@ public class Game {
     CharacterAction action = new CharacterAction();
     ChangeTexts change = new ChangeTexts();
     Fight fight = new Fight();
-//    Location location = new Location();
+    Location location = null;
     private ArrayList<Result> results = new ArrayList<>();
 
     public void setLocations_count(int locations_count) {
@@ -36,9 +36,10 @@ public class Game {
     private int locations_count;
 
 
-//    public Location NewLocation(int human_lvl){
-//        Location location = new Location()
-//    }
+    public void NewLocation(int human_lvl){
+        System.out.println("respawn enemies");
+        location.ememies_left = location.count_num_enemies();
+    }
     public Player NewEnemy(JLabel L1, JLabel L2,
             JLabel L3, JLabel L4, JProgressBar pr2) {
         action.setEnemyes();

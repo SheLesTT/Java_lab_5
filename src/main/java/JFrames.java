@@ -67,7 +67,7 @@ public class JFrames extends javax.swing.JFrame {
         opponent_damage = new javax.swing.JLabel();
         your_lvl_label = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        Your_hp_number = new javax.swing.JLabel();
         opponent_hp = new javax.swing.JLabel();
         exp_lable = new javax.swing.JLabel();
         points_label = new javax.swing.JLabel();
@@ -79,6 +79,7 @@ public class JFrames extends javax.swing.JFrame {
         kitana_text = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         inventory = new javax.swing.JButton();
+        location_number_label = new javax.swing.JLabel();
         continue_dialog = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         who_win_label = new javax.swing.JLabel();
@@ -114,18 +115,17 @@ public class JFrames extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
-        set_locations_frame = new javax.swing.JFrame();
-        enter_locations_field = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        StartGameButton = new javax.swing.JButton();
-        Select_upgrade = new javax.swing.JFrame();
+        Set_locations_dialog = new javax.swing.JDialog();
+        set_locations_label = new javax.swing.JLabel();
+        location_amount_field = new javax.swing.JTextField();
+        Start_fight = new javax.swing.JButton();
+        Select_upgrade_dialog = new javax.swing.JDialog();
         jPanel9 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        UpgradeAttackButton = new javax.swing.JButton();
-        UpgradeHpButton = new javax.swing.JButton();
-        Location_cleared = new javax.swing.JFrame();
-        jLabel6 = new javax.swing.JLabel();
-        enterNextLoacationButton = new javax.swing.JButton();
+        upgrade_attack_button = new javax.swing.JButton();
+        uppgrade_hp_button = new javax.swing.JButton();
+        Location_cleared_dialog = new javax.swing.JDialog();
+        Location_cleared_text = new javax.swing.JLabel();
+        Enter_next_location_button = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         SetLocationsAmount = new javax.swing.JButton();
@@ -193,10 +193,10 @@ public class JFrames extends javax.swing.JFrame {
         jLabel11.setText("FIGHT");
         jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel12.setText("80/80");
+        Your_hp_number.setBackground(new java.awt.Color(255, 255, 255));
+        Your_hp_number.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        Your_hp_number.setForeground(new java.awt.Color(102, 102, 102));
+        Your_hp_number.setText("80/80");
 
         opponent_hp.setBackground(new java.awt.Color(255, 255, 255));
         opponent_hp.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
@@ -250,6 +250,8 @@ public class JFrames extends javax.swing.JFrame {
             }
         });
 
+        location_number_label.setText("Location 1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -281,10 +283,6 @@ public class JFrames extends javax.swing.JFrame {
                                                 .addGap(108, 108, 108)
                                                 .addComponent(exp_amount_label))))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(opponent_damage_text, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(opponent_damage, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(opponent_name, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -304,7 +302,14 @@ public class JFrames extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(inventory, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)))
+                                .addGap(46, 46, 46))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(opponent_damage_text, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(opponent_damage, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(location_number_label, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(115, 115, 115)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(your_lvl_label)
@@ -314,7 +319,7 @@ public class JFrames extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(your_hp, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel12))
+                                        .addComponent(Your_hp_number))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(your_damge_text, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -350,7 +355,7 @@ public class JFrames extends javax.swing.JFrame {
                             .addComponent(opponent_hp_bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addComponent(jLabel12))
+                                .addComponent(Your_hp_number))
                             .addComponent(opponent_hp, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -361,42 +366,48 @@ public class JFrames extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(exp_amount_label)
                             .addComponent(points_amount_label))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(your_damge_text)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(opponent_damage_text)
-                        .addComponent(opponent_damage)
-                        .addComponent(your_damage)))
-                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(opponent_image, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(opponent_name, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(your_damge_text)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(opponent_damage_text)
+                                .addComponent(opponent_damage)
+                                .addComponent(your_damage)))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(your_lvl_label)
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(turn_result, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(opponent_image, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(kitana_text, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inventory, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                            .addComponent(attack_button, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                            .addComponent(defend_button, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                        .addGap(14, 14, 14))))
+                                .addComponent(opponent_name, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(your_lvl_label)
+                                        .addGap(7, 7, 7)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(33, 33, 33)
+                                        .addComponent(turn_result, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(kitana_text, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(inventory, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                    .addComponent(attack_button, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                    .addComponent(defend_button, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                                .addGap(14, 14, 14))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(location_number_label)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(229, 229, 229)
@@ -855,63 +866,56 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        enter_locations_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                enter_locations_fieldActionPerformed(evt);
-            }
-        });
-        jLabel5.setText("How many locations do you whant to pass?");
+        set_locations_label.setText("How many locations do you whant to complete");
 
-        StartGameButton.setText("FIGHT!");
-        StartGameButton.addActionListener(new java.awt.event.ActionListener() {
+        Start_fight.setText("FIGHT!");
+        Start_fight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StartGameButtonActionPerformed(evt);
+                Start_fightActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout set_locations_frameLayout = new javax.swing.GroupLayout(set_locations_frame.getContentPane());
-        set_locations_frame.getContentPane().setLayout(set_locations_frameLayout);
-        set_locations_frameLayout.setHorizontalGroup(
-            set_locations_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, set_locations_frameLayout.createSequentialGroup()
-                .addGap(0, 68, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-            .addGroup(set_locations_frameLayout.createSequentialGroup()
-                .addGroup(set_locations_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(set_locations_frameLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(enter_locations_field, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(set_locations_frameLayout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(StartGameButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout Set_locations_dialogLayout = new javax.swing.GroupLayout(Set_locations_dialog.getContentPane());
+        Set_locations_dialog.getContentPane().setLayout(Set_locations_dialogLayout);
+        Set_locations_dialogLayout.setHorizontalGroup(
+            Set_locations_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Set_locations_dialogLayout.createSequentialGroup()
+                .addGroup(Set_locations_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Set_locations_dialogLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(set_locations_label, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Set_locations_dialogLayout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addGroup(Set_locations_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(location_amount_field, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Set_locations_dialogLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(Start_fight)))))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
-        set_locations_frameLayout.setVerticalGroup(
-            set_locations_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(set_locations_frameLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(enter_locations_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        Set_locations_dialogLayout.setVerticalGroup(
+            Set_locations_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Set_locations_dialogLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(set_locations_label)
                 .addGap(18, 18, 18)
-                .addComponent(StartGameButton)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addComponent(location_amount_field, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(Start_fight)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
-        jLabel4.setText("What do you whant to upgrade attack or max hp");
-
-        UpgradeAttackButton.setText("Upgrade Attack");
-        UpgradeAttackButton.addActionListener(new java.awt.event.ActionListener() {
+        upgrade_attack_button.setText("Upgrade attack");
+        upgrade_attack_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpgradeAttackButtonActionPerformed(evt);
+                upgrade_attack_buttonActionPerformed(evt);
             }
         });
 
-        UpgradeHpButton.setText("Upgrade Hp");
-        UpgradeHpButton.addActionListener(new java.awt.event.ActionListener() {
+        uppgrade_hp_button.setText("Upgrade hp");
+        uppgrade_hp_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpgradeHpButtonActionPerformed(evt);
+                uppgrade_hp_buttonActionPerformed(evt);
             }
         });
 
@@ -920,63 +924,61 @@ public class JFrames extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(UpgradeAttackButton)
-                        .addGap(76, 76, 76)
-                        .addComponent(UpgradeHpButton)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
-                        .addGap(58, 58, 58))))
+                .addGap(29, 29, 29)
+                .addComponent(upgrade_attack_button, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(uppgrade_hp_button, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(135, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UpgradeAttackButton)
-                    .addComponent(UpgradeHpButton))
-                .addContainerGap(139, Short.MAX_VALUE))
+                    .addComponent(upgrade_attack_button, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uppgrade_hp_button, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(119, 119, 119))
         );
 
-        javax.swing.GroupLayout Select_upgradeLayout = new javax.swing.GroupLayout(Select_upgrade.getContentPane());
-        Select_upgrade.getContentPane().setLayout(Select_upgradeLayout);
-        Select_upgradeLayout.setHorizontalGroup(
-            Select_upgradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Select_upgrade_dialogLayout = new javax.swing.GroupLayout(Select_upgrade_dialog.getContentPane());
+        Select_upgrade_dialog.getContentPane().setLayout(Select_upgrade_dialogLayout);
+        Select_upgrade_dialogLayout.setHorizontalGroup(
+            Select_upgrade_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        Select_upgradeLayout.setVerticalGroup(
-            Select_upgradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Select_upgrade_dialogLayout.setVerticalGroup(
+            Select_upgrade_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel6.setText("You cleared this location");
+        Location_cleared_text.setText("You cleared this location");
 
-        enterNextLoacationButton.setText("Enter next Location ");
+        Enter_next_location_button.setText("Enter next location");
+        Enter_next_location_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Enter_next_location_buttonActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout Location_clearedLayout = new javax.swing.GroupLayout(Location_cleared.getContentPane());
-        Location_cleared.getContentPane().setLayout(Location_clearedLayout);
-        Location_clearedLayout.setHorizontalGroup(
-            Location_clearedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Location_clearedLayout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addGroup(Location_clearedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterNextLoacationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(98, Short.MAX_VALUE))
+        javax.swing.GroupLayout Location_cleared_dialogLayout = new javax.swing.GroupLayout(Location_cleared_dialog.getContentPane());
+        Location_cleared_dialog.getContentPane().setLayout(Location_cleared_dialogLayout);
+        Location_cleared_dialogLayout.setHorizontalGroup(
+            Location_cleared_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Location_cleared_dialogLayout.createSequentialGroup()
+                .addContainerGap(143, Short.MAX_VALUE)
+                .addGroup(Location_cleared_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Enter_next_location_button)
+                    .addComponent(Location_cleared_text))
+                .addGap(127, 127, 127))
         );
-        Location_clearedLayout.setVerticalGroup(
-            Location_clearedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Location_clearedLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(enterNextLoacationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+        Location_cleared_dialogLayout.setVerticalGroup(
+            Location_cleared_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Location_cleared_dialogLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(Location_cleared_text, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(Enter_next_location_button)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1061,8 +1063,8 @@ public class JFrames extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SetLocationsAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetLocationsAmountActionPerformed
-        set_locations_frame.setVisible(rootPaneCheckingEnabled);
-        set_locations_frame.setSize(500, 500);
+        Set_locations_dialog.setVisible(rootPaneCheckingEnabled);
+        Set_locations_dialog.setSize(500, 500);
 
         /*game.action.setEnemyes();
         enemy = game.action.ChooseEnemy(jLabel4, jLabel5, jLabel10, jLabel13);
@@ -1077,30 +1079,32 @@ public class JFrames extends javax.swing.JFrame {
     }//GEN-LAST:event_SetLocationsAmountActionPerformed
 
     private void attack_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack_buttonActionPerformed
-        game.fight.Hit(human, enemy, 1, opponent_hp, jLabel12, continue_dialog, 
+//        System.out.println(enemy.getClass() + " In gui ");
+        game.fight.Hit(human, enemy, 1, opponent_hp, Your_hp_number, continue_dialog,
                 who_win_label, game.action, your_hp, opponent_hp_bar, Win_dialog, 
                 Win_out_of_10_dialog, jFrame1, game.getResults(), jLabel20, jLabel24, 
-                jLabel26, jLabel29, turn_result, items, jRadioButton3);
+                jLabel26, jLabel29, turn_result, items, jRadioButton3, game.location, location_number_label, Select_upgrade_dialog);
         
     }//GEN-LAST:event_attack_buttonActionPerformed
 
     private void defend_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defend_buttonActionPerformed
-        game.fight.Hit(human, enemy, 0, opponent_hp, jLabel12, continue_dialog, 
+        game.fight.Hit(human, enemy, 0, opponent_hp, Your_hp_number, continue_dialog,
                 who_win_label, game.action, your_hp, opponent_hp_bar, Win_dialog, 
                 Win_out_of_10_dialog, jFrame1, game.getResults(), jLabel20, jLabel24, 
-                jLabel26, jLabel29, turn_result, items, jRadioButton3);
+                jLabel26, jLabel29, turn_result, items, jRadioButton3, game.location,location_number_label, Select_upgrade_dialog);
     }//GEN-LAST:event_defend_buttonActionPerformed
 
     // new round should be changed for new location
     // or i need a new window of a room finish
     private void continue_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continue_buttonActionPerformed
 
-        enemy=game.fight.NewRound(human, opponent_image, your_hp, opponent_hp_bar, 
-                opponent_name, opponent_damage, opponent_hp, game.action);
+        boolean is_boss = game.location.generate_new_enemy(Location_cleared_dialog);
+        enemy=game.fight.NewRound(human, opponent_image, your_hp, opponent_hp_bar,
+                opponent_name, opponent_damage, opponent_hp, game.action, is_boss);
+//        System.out.println(enemy.getClass());
 
-        
-        game.change.NewRoundTexts(human, enemy, your_hp, opponent_hp_bar, 
-                points_amount_label, exp_amount_label, your_lvl_label, opponent_level, jLabel12, opponent_hp, your_damage,
+        game.change.NewRoundTexts(human, enemy, your_hp, opponent_hp_bar,
+                points_amount_label, exp_amount_label, your_lvl_label, opponent_level, Your_hp_number, opponent_hp, your_damage,
                 jLabel26, turn_result, game.fight.i, items, jRadioButton1, jRadioButton2, jRadioButton3);
 
         continue_dialog.dispose();
@@ -1153,7 +1157,7 @@ public class JFrames extends javax.swing.JFrame {
         }
         game.action.UseItem(human, items, nameButton, no_item_dialog, inventory_dialog);
         game.action.HP(human, your_hp);
-        jLabel12.setText(human.getHealth() + "/" + human.getMaxHealth());
+        Your_hp_number.setText(human.getHealth() + "/" + human.getMaxHealth());
         game.change.BagText(items, jRadioButton1, jRadioButton2, jRadioButton3);
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -1166,27 +1170,43 @@ public class JFrames extends javax.swing.JFrame {
         no_item_dialog.dispose();
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void StartGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartGameButtonActionPerformed
-jFrame1.setVisible(rootPaneCheckingEnabled);
+    private void Start_fightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Start_fightActionPerformed
+        jFrame1.setVisible(rootPaneCheckingEnabled);
         jFrame1.setSize(1000,700);
-        game.setLocations_count(Integer.parseInt(enter_locations_field.getText()));
-        
+        game.setLocations_count(Integer.parseInt(location_amount_field.getText()));
+
         human = game.NewHuman(your_hp);
-        
+        int locations_num = Integer.parseInt(location_amount_field.getText());
+        game.location = new Location(human, locations_num);
+
+        game.NewLocation(human.getLevel());
+        game.location.generate_new_enemy(Location_cleared_dialog);
         enemy = game.NewEnemy(opponent_image, opponent_name, opponent_damage, opponent_hp, opponent_hp_bar);
-        
-        game.change.NewRoundTexts(human, enemy, your_hp, opponent_hp_bar, 
-                points_amount_label, exp_amount_label, your_lvl_label, opponent_level, jLabel12, opponent_hp, your_damage,
-                jLabel26, turn_result, game.fight.i, items, jRadioButton1, jRadioButton2, jRadioButton3);        // TODO add your handling code here:
-    }//GEN-LAST:event_StartGameButtonActionPerformed
 
-    private void UpgradeAttackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpgradeAttackButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UpgradeAttackButtonActionPerformed
+        game.change.NewRoundTexts(human, enemy, your_hp, opponent_hp_bar,
+                points_amount_label, exp_amount_label, your_lvl_label, opponent_level, Your_hp_number, opponent_hp, your_damage,
+                jLabel26, turn_result, game.fight.i, items, jRadioButton1, jRadioButton2, jRadioButton3);
+        Set_locations_dialog.dispose();
+    }//GEN-LAST:event_Start_fightActionPerformed
 
-    private void UpgradeHpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpgradeHpButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UpgradeHpButtonActionPerformed
+    private void Enter_next_location_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Enter_next_location_buttonActionPerformed
+        game.NewLocation(human.getLevel());
+        Location_cleared_dialog.dispose();
+
+    }//GEN-LAST:event_Enter_next_location_buttonActionPerformed
+
+    private void upgrade_attack_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upgrade_attack_buttonActionPerformed
+        human.setDamage(5);
+     Select_upgrade_dialog.dispose();
+     your_damage.setText(Integer.toString(human.getDamage()));
+    }//GEN-LAST:event_upgrade_attack_buttonActionPerformed
+
+    private void uppgrade_hp_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppgrade_hp_buttonActionPerformed
+     human.setMaxHealth(30);
+     human.setHealth(30);
+     Select_upgrade_dialog.dispose();
+     Your_hp_number.setText(human.getHealth() + "/" + human.getMaxHealth());
+    }//GEN-LAST:event_uppgrade_hp_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1224,21 +1244,21 @@ jFrame1.setVisible(rootPaneCheckingEnabled);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFrame Location_cleared;
-    private javax.swing.JFrame Select_upgrade;
+    private javax.swing.JButton Enter_next_location_button;
+    private javax.swing.JDialog Location_cleared_dialog;
+    private javax.swing.JLabel Location_cleared_text;
+    private javax.swing.JDialog Select_upgrade_dialog;
     private javax.swing.JButton SetLocationsAmount;
-    private javax.swing.JButton StartGameButton;
-    private javax.swing.JButton UpgradeAttackButton;
-    private javax.swing.JButton UpgradeHpButton;
+    private javax.swing.JDialog Set_locations_dialog;
+    private javax.swing.JButton Start_fight;
     private javax.swing.JDialog Win_dialog;
     private javax.swing.JDialog Win_out_of_10_dialog;
+    private javax.swing.JLabel Your_hp_number;
     private javax.swing.JButton attack_button;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton continue_button;
     private javax.swing.JDialog continue_dialog;
     private javax.swing.JButton defend_button;
-    private javax.swing.JButton enterNextLoacationButton;
-    private javax.swing.JTextField enter_locations_field;
     private javax.swing.JLabel exp_amount_label;
     private javax.swing.JLabel exp_lable;
     private javax.swing.JButton inventory;
@@ -1251,7 +1271,6 @@ jFrame1.setVisible(rootPaneCheckingEnabled);
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1265,9 +1284,6 @@ jFrame1.setVisible(rootPaneCheckingEnabled);
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1284,6 +1300,8 @@ jFrame1.setVisible(rootPaneCheckingEnabled);
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel kitana_text;
+    private javax.swing.JTextField location_amount_field;
+    private javax.swing.JLabel location_number_label;
     private javax.swing.JDialog no_item_dialog;
     private javax.swing.JLabel opponent_damage;
     private javax.swing.JLabel opponent_damage_text;
@@ -1295,8 +1313,10 @@ jFrame1.setVisible(rootPaneCheckingEnabled);
     private javax.swing.JLabel points_amount_label;
     private javax.swing.JLabel points_label;
     private javax.swing.JDialog records_table_dialog;
-    private javax.swing.JFrame set_locations_frame;
+    private javax.swing.JLabel set_locations_label;
     private javax.swing.JLabel turn_result;
+    private javax.swing.JButton upgrade_attack_button;
+    private javax.swing.JButton uppgrade_hp_button;
     private javax.swing.JButton view_result_table;
     private javax.swing.JLabel who_win_label;
     private javax.swing.JLabel your_damage;
