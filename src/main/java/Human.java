@@ -1,14 +1,16 @@
+
+import Fighters.Player;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
 /**
- *
+ * Player character class
  * @author Мария
  */
 
-// Player character class
 public class Human extends Player{
     
 
@@ -16,9 +18,15 @@ public class Human extends Player{
     private int experience;
     private int win;
     private int nextexperience;
-    
-    
-    
+
+
+    /**
+     * extends a player constructor with parameters of only a human player
+      * @param level
+     * @param health
+     * @param damage
+     * @param attack
+     */
     public Human(int level, int health, int  damage, int attack){
         super (level, health, damage, attack);
         this.points=0;
@@ -60,5 +68,4 @@ public class Human extends Player{
         return "You";
     }
 
-    
 }

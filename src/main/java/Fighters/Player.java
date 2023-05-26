@@ -1,10 +1,12 @@
+package Fighters;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
 /**
- *
+ *  Class for manipulations with fighters parameters
  * @author Мария
  */
 public class Player {
@@ -14,7 +16,14 @@ public class Player {
     private int maxhealth;
     private int damage;
     private int attack;
-    
+
+    /**
+     * Constructor for Player class
+     * @param level
+     * @param health
+     * @param damage
+     * @param attack
+     */
     public Player(int level, int health, int damage, int attack){
         this.level=level;
         this.health=health;

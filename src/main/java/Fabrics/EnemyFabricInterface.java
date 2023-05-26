@@ -1,8 +1,9 @@
-/*
+package Fabrics;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 
+import Fighters.Player;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 

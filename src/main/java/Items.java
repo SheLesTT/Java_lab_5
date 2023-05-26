@@ -4,7 +4,7 @@
  */
 
 /**
- *
+ * Class that stores items of a human player
  * @author Мария
  */
 public class Items {

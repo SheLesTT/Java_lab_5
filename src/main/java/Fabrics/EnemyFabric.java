@@ -1,17 +1,22 @@
-/*
+package Fabrics;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-import javax.swing.JLabel;
-import javax.swing.JProgressBar;
+import Fighters.Player;
+import Fabrics.BarakaFabric;
 
 /**
- *
+ * class for generation of fabrics of enemies
  * @author Мария
  */
 public class EnemyFabric {
-
+    /**
+     * method for choosing witch enemy fabric to choose
+     * @param i
+     * @param j
+     * @return
+     */
     public Player create(int i, int j) {
         EnemyFabricInterface fabric = null;
 

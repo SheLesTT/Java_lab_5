@@ -122,7 +122,7 @@
                                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel2" min="-2" pref="245" max="-2" attributes="0"/>
+                                      <Component id="your_image" min="-2" pref="245" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -204,7 +204,7 @@
                                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                               <Component id="your_lvl_label" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                              <Component id="jLabel2" min="-2" pref="227" max="-2" attributes="0"/>
+                                              <Component id="your_image" min="-2" pref="227" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -245,7 +245,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="your_image">
             </Component>
             <Component class="javax.swing.JButton" name="attack_button">
               <Properties>

@@ -3,18 +3,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+import Fighters.Player;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
 
 /**
- *
+ * Class that changes  information on the user interface
  * @author Мария
  */
 public class ChangeTexts {
 
 
-
+    /**
+     * display new round info
+     * @param human
+     * @param enemy
+     * @param pr1
+     * @param pr2
+     * @param label
+     * @param label2
+     * @param label3
+     * @param label4
+     * @param label5
+     * @param label6
+     * @param label7
+     * @param label8
+     * @param label9
+     * @param i
+     * @param items
+     * @param rb1
+     * @param rb2
+     * @param rb3
+     */
     public void NewRoundTexts(Player human, Player enemy, JProgressBar pr1,
             JProgressBar pr2, JLabel label, JLabel label2, JLabel label3,
             JLabel label4, JLabel label5, JLabel label6, JLabel label7, JLabel label8, JLabel label9,
@@ -39,6 +60,15 @@ public class ChangeTexts {
         label9.setText("");
     }
 
+    /**
+     * Change info during the round
+     * @param human
+     * @param enemy
+     * @param label
+     * @param label2
+     * @param i
+     * @param label3
+     */
     public void RoundTexts(Player human, Player enemy, JLabel label, JLabel label2, int i, JLabel label3) {
         if (enemy.getHealth() >= 0) {
             label.setText(Integer.toString(enemy.getHealth()) + "/" + Integer.toString(enemy.getMaxHealth()));
@@ -57,7 +87,12 @@ public class ChangeTexts {
             label3.setText(enemy.getName()+"'s turn");
         }
     }
-    
+
+    /**
+     * Displays who won in a game
+     * @param human
+     * @param label
+     */
     public void EndGameText(Human human, JLabel label){
         if(human.getWin()==12){
             label.setText("Победа на вашей стороне");
@@ -66,7 +101,14 @@ public class ChangeTexts {
             label.setText("Победа не на вашей стороне");
         }
     }
-    
+
+    /**
+     * shows info about human items
+     * @param items
+     * @param rb1
+     * @param rb2
+     * @param rb3
+     */
     public void BagText( Items[] items, JRadioButton rb1, JRadioButton rb2, JRadioButton rb3){
         rb1.setText(items[0].getName()+", "+items[0].getCount()+" шт");
         rb2.setText(items[1].getName()+", "+items[1].getCount()+" шт");

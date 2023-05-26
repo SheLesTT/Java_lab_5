@@ -3,13 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+import Fighters.Baraka;
+import Fighters.Player;
+import Fabrics.EnemyFabric;
+import Fighters.LiuKang;
+import Fighters.ShaoKahn;
+import Fighters.SonyaBlade;
+import Fighters.SubZero;
+
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
 /**
- *
+ * The CharacterAction class represents the actions and behaviors of characters in a game.
+ * It contains methods for setting enemies, choosing enemies and bosses, handling enemy behaviors,
+ * managing health points, leveling up, adding items, and using items.*
  * @author Мария
  */
 public class CharacterAction {
@@ -23,7 +33,9 @@ public class CharacterAction {
     EnemyFabric fabric = new EnemyFabric();
 
     private Player enemyy = null;
-
+    /**
+     * Sets the array of enemies using the EnemyFabric
+     */
     public void setEnemyes() {
         enemyes[0] = fabric.create(0, 0);
         enemyes[1] = fabric.create(1, 0);
@@ -32,11 +44,21 @@ public class CharacterAction {
         enemyes[4] = fabric.create(4, 0);
         enemyes[5] = fabric.create(4, 0);
     }
-
+    /**
+     * Returns the array of enemies.
+     * @return The array of enemies.
+     */
     public Player[] getEnemyes() {
         return this.enemyes;
     }
-
+    /**
+     * Chooses a random enemy and updates the UI labels and icons accordingly.
+     * @param label The label to display the enemy's icon.
+     * @param label2 The label to display the enemy's name.
+     * @param text The label to display the enemy's damage.
+     * @param label3 The label to display the enemy's health.
+     * @return The chosen enemy.
+     */
     public Player ChooseEnemy(JLabel label, JLabel label2, JLabel text, JLabel label3) {
         int i = (int) (Math.random() * 4);
         ImageIcon icon1 = null;
@@ -44,22 +66,22 @@ public class CharacterAction {
         switch (i) {
             case 0:
                 enemyy = enemyes[0];
-                icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Baraka.jpg");
+                icon1 = new ImageIcon(".\\resources\\Baraka.png");
                 label2.setText("Baraka (танк)");
                 break;
             case 1:
                 enemyy = enemyes[1];
-                icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Sub-Zero.jpg");
+                icon1 = new ImageIcon(".\\resources\\Sub_Zero.png");
                 label2.setText("Sub-Zero (маг)");
                 break;
             case 2:
                 enemyy = enemyes[2];
-                icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Liu Kang.jpg");
+                icon1 = new ImageIcon(".\\resources\\LiuKang.png");
                 label2.setText("Liu Kang (боец)");
                 break;
             case 3:
                 enemyy = enemyes[3];
-                icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Sonya Blade.jpg");
+                icon1 = new ImageIcon(".\\resources\\Sonia_blade.png");
                 label2.setText("Sonya Blade (солдат)");
                 break;
         }
@@ -68,10 +90,18 @@ public class CharacterAction {
         label3.setText(Integer.toString(enemyy.getHealth()) + "/" + Integer.toString(enemyy.getMaxHealth()));
         return enemyy;
     }
-
+    /**
+     * Chooses a boss enemy and updates the UI labels and icons accordingly.
+     * @param label The label to display the enemy's icon.
+     * @param label2 The label to display the enemy's name.
+     * @param text The label to display the enemy's damage.
+     * @param label3 The label to display the enemy's health.
+     * @param i The index of the chosen boss.
+     * @return The chosen boss enemy.
+     */
     public Player ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3, int i) {
         ImageIcon icon1 = null;
-        icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Shao Kahn.png");
+        icon1 = new ImageIcon(".\\resources\\Shaokahn.jpg");
         label2.setText("Shao Kahn (босс)");
 //        switch (i) {
 //            case 2:
@@ -86,7 +116,15 @@ public class CharacterAction {
         label3.setText(Integer.toString(enemyy.getHealth()) + "/" + Integer.toString(enemyy.getMaxHealth()));
         return enemyy;
     }
-
+    /**
+     * Determines the behavior of the enemy based on the provided parameters.
+     * @param k1 The weight for the first behavior type.
+     * @param k2 The weight for the second behavior type.
+     * @param k3 The weight for the third behavior type.
+     * @param k4 The weight for the fourth behavior type.
+     * @param i The random value to determine the behavior.
+     * @return An array representing the chosen behavior.
+     */
     public int[] EnemyBehavior(int k1, int k2, int k3, int k4, double i) {
         int arr[] = null;
         if (i < k1 * 0.01) {
@@ -103,7 +141,12 @@ public class CharacterAction {
         }
         return arr;
     }
-
+    /**
+     * Chooses the behavior for the given enemy.
+     * @param enemy The enemy for which to choose the behavior.
+     * @param action The CharacterAction instance.
+     * @return An array representing the chosen behavior.
+     */
     public int[] ChooseBehavior(Player enemy, CharacterAction action) {
         int arr[] = null;
         double i = Math.random();
@@ -124,7 +167,11 @@ public class CharacterAction {
         }
         return arr;
     }
-
+    /**
+     * Updates the health progress bar for the given player.
+     * @param player The player for which to update the health.
+     * @param progress The progress bar to update.
+     */
     public void HP(Player player, JProgressBar progress) {
 
         if (player.getHealth() >= 0) {
@@ -133,7 +180,12 @@ public class CharacterAction {
             progress.setValue(0);
         }
     }
-
+    /**
+     * Adds experience points and calculates the level up for the human player.
+     * @param human The human player.
+     * @param enemyes The array of enemies.
+     * @param lvl_up_dialog The dialog for level up notification.
+     */
     public void AddPoints(Human human, Player[] enemyes, JDialog lvl_up_dialog) {
         switch (human.getLevel()) {
             case 0:
@@ -171,7 +223,11 @@ public class CharacterAction {
             }
         }
     }
-
+    /**
+     * Adds experience points and calculates the level up for the human player defeating a boss.
+     * @param human The human player.
+     * @param enemyes The array of enemies.
+     */
     public void AddPointsBoss(Human human, Player[] enemyes) {
         switch (human.getLevel()) {
             case 2:
@@ -194,7 +250,13 @@ public class CharacterAction {
             }
         }
     }
-
+    /**
+     * Adds items to the inventory based on the provided probabilities.
+     * @param k1 The probability for the first item.
+     * @param k2 The probability for the second item.
+     * @param k3 The probability for the third item.
+     * @param items The array of items.
+     */
     public void AddItems(int k1, int k2, int k3, Items[] items) {
         double i = Math.random();
         if (i < k1 * 0.01) {
@@ -258,7 +320,10 @@ public class CharacterAction {
         enemy.setDamage((int) enemy.getDamage() * damage / 100);
         enemy.setLevel();
     }
+    /**
+     * Uses the selected item and updates the player's health accordingly.
 
+     */
     public void UseItem(Player human, Items[] items, String name, JDialog dialog, JDialog dialog1) {
         switch (name) {
             case "jRadioButton1":
@@ -284,7 +349,7 @@ public class CharacterAction {
                 dialog.setBounds(300, 200, 400, 300);
                 break;
         }
-        
+
         if(dialog.isVisible()==false){
             dialog1.dispose();
         }

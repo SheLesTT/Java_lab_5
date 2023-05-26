@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import Fighters.Player;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,7 +57,7 @@ public class JFrames extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        your_image = new javax.swing.JLabel();
         attack_button = new javax.swing.JButton();
         defend_button = new javax.swing.JButton();
         your_hp = new javax.swing.JProgressBar();
@@ -326,7 +329,7 @@ public class JFrames extends javax.swing.JFrame {
                                         .addComponent(your_damage, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(45, 45, 45))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(your_image, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(kitana_text, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,7 +391,7 @@ public class JFrames extends javax.swing.JFrame {
                                         .addGap(16, 16, 16)
                                         .addComponent(your_lvl_label)
                                         .addGap(7, 7, 7)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(your_image, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(33, 33, 33)
                                         .addComponent(turn_result, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1062,6 +1065,10 @@ public class JFrames extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * opens the dialog where player can choose the amount of locations he whants to pass
+     * @param evt
+     */
     private void SetLocationsAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetLocationsAmountActionPerformed
         Set_locations_dialog.setVisible(rootPaneCheckingEnabled);
         Set_locations_dialog.setSize(500, 500);
@@ -1078,6 +1085,10 @@ public class JFrames extends javax.swing.JFrame {
         
     }//GEN-LAST:event_SetLocationsAmountActionPerformed
 
+    /**
+     * Starts when player chooses to attack on his move
+     * @param evt
+     */
     private void attack_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack_buttonActionPerformed
 //        System.out.println(enemy.getClass() + " In gui ");
         game.fight.Hit(human, enemy, 1, opponent_hp, Your_hp_number, continue_dialog,
@@ -1087,6 +1098,10 @@ public class JFrames extends javax.swing.JFrame {
         
     }//GEN-LAST:event_attack_buttonActionPerformed
 
+    /**
+     * Start when player chooses to defend on his move
+     * @param evt
+     */
     private void defend_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defend_buttonActionPerformed
         game.fight.Hit(human, enemy, 0, opponent_hp, Your_hp_number, continue_dialog,
                 who_win_label, game.action, your_hp, opponent_hp_bar, Win_dialog, 
@@ -1096,6 +1111,11 @@ public class JFrames extends javax.swing.JFrame {
 
     // new round should be changed for new location
     // or i need a new window of a room finish
+
+    /**
+     * Continues the game after player hits continue button
+     * @param evt
+     */
     private void continue_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continue_buttonActionPerformed
 
         boolean is_boss = game.location.generate_new_enemy(Location_cleared_dialog);
@@ -1128,6 +1148,10 @@ public class JFrames extends javax.swing.JFrame {
         records_table_dialog.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    /**
+     * Shows the table with best results
+     * @param evt
+     */
     private void view_result_tableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_result_tableActionPerformed
         records_table_dialog.setVisible(true);
         records_table_dialog.setBounds(100, 100, 580, 450);
@@ -1145,6 +1169,10 @@ public class JFrames extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
+    /**
+     * selecet an item
+     * @param evt
+     */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         if(jRadioButton1.isSelected()){
             nameButton="jRadioButton1";
@@ -1161,6 +1189,10 @@ public class JFrames extends javax.swing.JFrame {
         game.change.BagText(items, jRadioButton1, jRadioButton2, jRadioButton3);
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    /**
+     * Opens the inventory
+     * @param evt
+     */
     private void inventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryActionPerformed
         inventory_dialog.setVisible(true);
         inventory_dialog.setBounds(300, 200, 430, 350);
@@ -1170,9 +1202,15 @@ public class JFrames extends javax.swing.JFrame {
         no_item_dialog.dispose();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    /**
+     * Starts the fight after player choose the amount of locations
+     * @param evt
+     */
     private void Start_fightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Start_fightActionPerformed
         jFrame1.setVisible(rootPaneCheckingEnabled);
         jFrame1.setSize(1000,700);
+        ImageIcon icon1 = new ImageIcon(".\\resources\\Kitana.png");
+        your_image.setIcon(icon1);
         game.setLocations_count(Integer.parseInt(location_amount_field.getText()));
 
         human = game.NewHuman(your_hp);
@@ -1195,12 +1233,20 @@ public class JFrames extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Enter_next_location_buttonActionPerformed
 
+    /**
+     * upgrades attack if player chooses to upgrade hp after lvl up
+     * @param evt
+     */
     private void upgrade_attack_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upgrade_attack_buttonActionPerformed
         human.setDamage(5);
      Select_upgrade_dialog.dispose();
      your_damage.setText(Integer.toString(human.getDamage()));
     }//GEN-LAST:event_upgrade_attack_buttonActionPerformed
 
+    /**
+     * Upgrades hp if player chooses to upgrade hp after lvl up
+     * @param evt
+     */
     private void uppgrade_hp_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppgrade_hp_buttonActionPerformed
      human.setMaxHealth(30);
      human.setHealth(30);
@@ -1271,7 +1317,6 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1322,6 +1367,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JLabel your_damage;
     private javax.swing.JLabel your_damge_text;
     private javax.swing.JProgressBar your_hp;
+    private javax.swing.JLabel your_image;
     private javax.swing.JLabel your_lvl_label;
     // End of variables declaration//GEN-END:variables
 }
