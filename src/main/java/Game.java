@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
+import java.io.IOException;
+import java.io.InputStream;
 import Fighters.Player;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -127,9 +128,11 @@ public class Game {
      * @throws IOException If an I/O error occurs.
      */
     public void ReadFromExcel() throws IOException{
-        XSSFWorkbook book = new XSSFWorkbook(".\\Results.xlsx");
+        InputStream inputStream = Game.class.getClassLoader().getResourceAsStream("Results.xlsx");
+        XSSFWorkbook book = new XSSFWorkbook(inputStream);
         XSSFSheet sh = book.getSheetAt(0);
         for (int i=1; i<=sh.getLastRowNum();i++) {
+            System.out.println(i);
             results.add(new Result(sh.getRow(i).getCell(1).getStringCellValue(),(int)sh.getRow(i).getCell(2).getNumericCellValue()));
         }
     }

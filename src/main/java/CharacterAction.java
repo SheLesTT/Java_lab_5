@@ -66,22 +66,22 @@ public class CharacterAction {
         switch (i) {
             case 0:
                 enemyy = enemyes[0];
-                icon1 = new ImageIcon(".\\resources\\Baraka.png");
+                icon1 = new ImageIcon(JFrames.class.getResource("Baraka.png"));
                 label2.setText("Baraka (танк)");
                 break;
             case 1:
                 enemyy = enemyes[1];
-                icon1 = new ImageIcon(".\\resources\\Sub_Zero.png");
+                icon1 = new ImageIcon(JFrames.class.getResource("Sub_zero.png"));
                 label2.setText("Sub-Zero (маг)");
                 break;
             case 2:
                 enemyy = enemyes[2];
-                icon1 = new ImageIcon(".\\resources\\LiuKang.png");
+                icon1 = new ImageIcon (JFrames.class.getResource("LuiKang.png"));
                 label2.setText("Liu Kang (боец)");
                 break;
             case 3:
                 enemyy = enemyes[3];
-                icon1 = new ImageIcon(".\\resources\\Sonia_blade.png");
+                icon1 = new ImageIcon(JFrames.class.getResource("Sonia_blade.png"));
                 label2.setText("Sonya Blade (солдат)");
                 break;
         }
@@ -101,7 +101,7 @@ public class CharacterAction {
      */
     public Player ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3, int i) {
         ImageIcon icon1 = null;
-        icon1 = new ImageIcon(".\\resources\\Shaokahn.jpg");
+        icon1 = new ImageIcon(JFrames.class.getResource("Shaokhan.jpg"));
         label2.setText("Shao Kahn (босс)");
 //        switch (i) {
 //            case 2:

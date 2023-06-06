@@ -7,6 +7,7 @@ import Fighters.Player;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -1209,7 +1210,8 @@ public class JFrames extends javax.swing.JFrame {
     private void Start_fightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Start_fightActionPerformed
         jFrame1.setVisible(rootPaneCheckingEnabled);
         jFrame1.setSize(1000,700);
-        ImageIcon icon1 = new ImageIcon(".\\resources\\Kitana.png");
+
+        ImageIcon icon1 = new ImageIcon(JFrames.class.getResource("Kitana.png"));
         your_image.setIcon(icon1);
         game.setLocations_count(Integer.parseInt(location_amount_field.getText()));
 
